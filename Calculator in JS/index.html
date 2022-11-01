@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Calculadora</title>
+</head>
+<body>
+    <div class="calc">
+        <h1>Calculadora</h1>
+        <p id="resultado"></p>
+        <table id="coluna_1">
+            <tr><button id="botaoclear" onclick="clean()">C</button></tr>
+            <tr><button id="botaoback" onclick="back()"><</button></tr>
+            <tr><button id="botao/" onclick="insert('/')">/</button></tr>
+            <tr><button id="botaoX" onclick="insert('*')">X</button></tr>
+        </table>
+        <table id="coluna_2">
+            <tr><button id="botao7" onclick="insert('7')">7</button></tr>
+            <tr><button id="botao8" onclick="insert('8')">8</button></tr>
+            <tr><button id="botao9" onclick="insert('9')">9</button></tr>
+            <tr><button id="botao-" onclick="insert('-')">-</button></tr>
+        </table>
+        <table id="coluna_3">
+            <tr><button id="botao4" onclick="insert('4')">4</button></tr>
+            <tr><button id="botao5" onclick="insert('5')">5</button></tr>
+            <tr><button id="botao6" onclick="insert('6')">6</button></tr>
+            <tr><button id="botao+" onclick="insert('+')">+</button></tr>
+        </table>
+        <table id="coluna_4">
+            <tr><button id="botao1" onclick="insert('1')">1</button></tr>
+            <tr><button id="botao2" onclick="insert('2')">2</button></tr>
+            <tr><button id="botao3" onclick="insert('3')">3</button></tr>
+            <tr><button id="botao=" onclick="calcular()">=</button></tr>
+        </table>
+        <table id="coluna_5">
+            <tr><button id="botao0" onclick="insert('0')">0</button></tr>
+            <tr><button id="botaoponto" onclick="insert('.')">.</button></tr>
+        </table>
+    </div>
+    <script>
+        function insert(num){
+
+            var numero = document.getElementById('resultado').innerHTML;
+            document.getElementById('resultado').innerHTML = numero + num
+        }
+
+        function clean(){
+            
+            document.getElementById('resultado').innerHTML = ""
+        }
+
+        function back(){
+
+            var resultado = document.getElementById('resultado').innerHTML;
+            document.getElementById('resultado').innerHTML = resultado.substring(0, resultado.length -1)
+        }
+
+        function calcular(){
+
+            var resultado = document.getElementById('resultado').innerHTML;
+            if(resultado){
+                document.getElementById('resultado').innerHTML = eval(resultado)
+            }
+            else{
+                document.getElementById('resultado').innerHTML = "Nada para calcular"
+            }
+        }
+    </script>
+</body>
+</html>
